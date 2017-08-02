@@ -68,7 +68,7 @@ If your versions are lower than suggested, then you should update to avoid any e
 
 ### Repo Structure
 
-  * **public/index.html**: the [page template](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#folder-structure) 
+  * **public/index.html**: the page template
   * **src/index.js**: the JavaScript entry point, React is rendered into DOM here, Redux store is configured, and Redux is connected to React
   * **src/actions**: Redux actions, related actions should be in a shared file, e.g. `weatherActions.js`.
   * **src/components**: All React components are defined here. `App.js` is the top-level component.
