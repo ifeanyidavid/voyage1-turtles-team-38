@@ -1,3 +1,15 @@
+export function toggleTodoVisibility() {
+  return {
+    type: 'TODO_TOGGLE_VISIBILITY'
+  };
+}
+
+export function toggleTodoIconVisibility() {
+  return {
+    type: 'TODO_ICON_TOGGLE_VISIBILITY'
+  };
+}
+
 export function addTodo(message) {
   return {
     type: 'ADD_TODO',
