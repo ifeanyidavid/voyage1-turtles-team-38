@@ -35,7 +35,7 @@ class App extends Component {
           xOffset={39}
         >
           <p className="unsplash">
-            Photo by <a href={backgroundSuccess.userProfile}>{backgroundSuccess.userName}</a> / <a href="https://unsplash.com">Unsplash</a>
+            Photo by <a href={backgroundSuccess.userProfile}>{backgroundSuccess.userName}</a> / <a href="https://unsplash.com?utm_source=leoh_clone&utm_medium=referral&utm_campaign=api-credit">Unsplash</a>
           </p>
         </Widget>
       );
