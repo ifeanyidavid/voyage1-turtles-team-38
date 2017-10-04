@@ -1,5 +1,10 @@
 import axios from 'axios';
 
+import {
+  FETCH_IMAGE_SUCCESS,
+  FETCH_IMAGE_FAILURE
+} from './actionTypes';
+
 async function fetchUnsplashImage() {
   try {
     let imageData;
@@ -23,12 +28,12 @@ export function fetchImage() {
     try {
       const backgroundImageData = await fetchUnsplashImage();
       dispatch({
-        type: 'FETCH_IMAGE_SUCCESS',
+        type: FETCH_IMAGE_SUCCESS,
         backgroundData: backgroundImageData
       });
     } catch (err) {
       dispatch({
-        type: 'FETCH_IMAGE_FAILURE',
+        type: FETCH_IMAGE_FAILURE,
         errorMessage: err.message || 'Unknown error'
       });
     }

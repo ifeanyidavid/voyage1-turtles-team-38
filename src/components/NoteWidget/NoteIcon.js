@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Icon from '../common/Icon';
-import NoteIconArrow from './NoteIconArrow';
+import IconArrow from '../common/IconArrow';
 
 import './NoteIcon.css';
 
@@ -37,7 +37,7 @@ class NoteIcon extends Component {
         onMouseEnter={this.handleOnMouseEnter}
         onMouseLeave={this.handleOnMouseLeave}
       >
-        <NoteIconArrow hidden={arrowIsHidden} />
+        <IconArrow hidden={arrowIsHidden} arrowOffset={0.45} />
         <Icon
           onHoverText="Note Taker"
           onIconClick={onIconClick}

@@ -1,24 +1,28 @@
-import {combineReducers} from 'redux';
+import {
+  FETCH_IMAGE_SUCCESS,
+  FETCH_IMAGE_FAILURE
+} from '../actions/actionTypes';
 
-const backgroundSuccess = (state = null, action) => {
+const initialState = {
+  userProfile: "",
+  userName: "",
+  imageUrl: "",
+  error: ""
+}
+
+export default (background = initialState, action) => {
   switch (action.type) {
-    case 'FETCH_IMAGE_SUCCESS':
-      return action.backgroundData;
+    case FETCH_IMAGE_SUCCESS:
+      return Object.assign({}, background, {
+        userProfile: action.backgroundData.userProfile,
+        userName: action.backgroundData.userName,
+        imageUrl: action.backgroundData.imageUrl
+      });
+    case FETCH_IMAGE_FAILURE:
+      return Object.assign({}, background, {
+        error: action.errorMessage
+      });
     default:
-      return state;
+      return background;
   }
 };
-
-const backgroundFailure = (state = null, action) => {
-  switch (action.type) {
-    case 'FETCH_IMAGE_FAILURE':
-      return action.errorMessage;
-    default:
-      return state;
-  }
-};
-
-export default combineReducers({
-  backgroundSuccess,
-  backgroundFailure
-});

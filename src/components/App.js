@@ -25,13 +25,13 @@ class App extends Component {
   }
 
   renderPhotoInfo() {
-    const {backgroundSuccess} = this.props.background;
-    if (backgroundSuccess) {
+    const {userProfile, userName} = this.props.background;
+    if (userProfile && userName) {
       return (
         <p className="unsplash">
           Photo by <a target="_blank"
                       rel="noopener noreferrer"
-                      href={backgroundSuccess.userProfile}>{backgroundSuccess.userName}</a> / <a
+                      href={userProfile}>{userName}</a> / <a
           target="_blank"
           rel="noopener noreferrer"
           href="https://unsplash.com?utm_source=leoh_clone&utm_medium=referral&utm_campaign=api-credit">Unsplash</a>
@@ -42,9 +42,9 @@ class App extends Component {
   }
 
   renderBackground() {
-    const {backgroundSuccess} = this.props.background;
-    if (backgroundSuccess) {
-      return `url(${backgroundSuccess.imageUrl})`;
+    const {imageUrl} = this.props.background;
+    if (imageUrl) {
+      return `url(${imageUrl})`;
     }
     // default image on unplash API failure
     return "url(https://source.unsplash.com/collection/1194376/1600x900)";

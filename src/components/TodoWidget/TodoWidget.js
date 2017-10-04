@@ -9,7 +9,7 @@ import TodoIcon from './TodoIcon';
 import TodoModal from './TodoModal';
 
 const TodoWidget = ({todos, onIconClick}) => {
-  const {todoIconIsVisible, todoIsVisible} = todos;
+  const {todoIconIsVisible, todoIsVisible, items} = todos;
 
   const renderIcon = () => {
     return todoIconIsVisible ?
@@ -20,7 +20,7 @@ const TodoWidget = ({todos, onIconClick}) => {
   };
 
   const renderModal = () => {
-    return todoIsVisible ? <TodoModal /> : null;
+    return todoIsVisible ? <TodoModal todos={items} /> : null;
   };
 
   return (

@@ -40,7 +40,7 @@ class TodoIcon extends Component {
         <IconArrow hidden={arrowIsHidden} />
         <Icon
           onHoverText="To-do List"
-          onIconClick={this.props.onIconClick}
+          onIconClick={onIconClick}
           faClass="fa-th-list"
         />
       </div>
