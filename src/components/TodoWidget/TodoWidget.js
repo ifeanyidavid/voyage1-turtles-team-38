@@ -2,13 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { toggleTodoVisibility } from '../../actions/todoActions';
+import { toggleTodoVisibility, completeTodo } from '../../actions/todoActions';
 
 import Widget from '../common/Widget';
 import TodoIcon from './TodoIcon';
 import TodoModal from './TodoModal';
 
-const TodoWidget = ({todos, onIconClick}) => {
+const TodoWidget = ({todos, onIconClick, onComplete}) => {
   const {todoIconIsVisible, todoIsVisible, items} = todos;
 
   const renderIcon = () => {
@@ -20,7 +20,7 @@ const TodoWidget = ({todos, onIconClick}) => {
   };
 
   const renderModal = () => {
-    return todoIsVisible ? <TodoModal todos={items} /> : null;
+    return todoIsVisible ? <TodoModal todos={items} onComplete={onComplete} /> : null;
   };
 
   return (
@@ -46,6 +46,9 @@ function mapDispatchToProps(dispatch) {
   return {
     onIconClick: () => {
       dispatch(toggleTodoVisibility());
+    },
+    onComplete: (index) => {
+      dispatch(completeTodo(index));
     }
   };
 }

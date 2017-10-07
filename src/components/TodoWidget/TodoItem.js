@@ -3,17 +3,21 @@ import PropTypes from 'prop-types';
 
 import './TodoItem.css';
 
-const TodoItem = ({onIconClick, children}) => {
+const TodoItem = ({onComplete, task}) => {
+  console.log(task);
   return (
-    <div className="Task">
-      <i className="fa fa-check"></i>
-      {children}
-    </div>
+    <li className="task">
+      <i
+        className={task.completed ? "fa fa-check complete" : "fa fa-check"}
+        onClick={onComplete}
+      ></i>
+      <p>{task.task}</p>
+    </li>
   );
 };
 
 TodoItem.propTypes = {
-  onIconClick: PropTypes.func,
+  onComplete: PropTypes.func.isRequired
 };
 
 export default TodoItem;

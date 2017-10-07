@@ -1,6 +1,9 @@
-.Task:hover {
+.task:hover {
   background-color: rgba(0, 0, 0, 0.4);
 }
-.Task > i:hover {
+.task > i:hover {
   color: #64bf56;
+}
+.task > p {
+  display: inline-block;
 }

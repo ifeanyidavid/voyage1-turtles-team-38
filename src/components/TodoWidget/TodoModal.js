@@ -6,20 +6,32 @@ import TodoItem from './TodoItem';
 
 import './TodoModal.css';
 
-const TodoModal = ({todos}) => {
+const TodoModal = ({todos, onComplete}) => {
+  let noTodos = todos.length === 0 ? <li className="noTodos"><p>No items on your Todo List!</p></li> : null;
+  let todoItems;
+  if (noTodos === null) {
+    todoItems = todos.map((todo) => {
+      return (
+        <TodoItem
+          task={todo}
+          onComplete={onComplete}
+        />
+      );
+    });
+  } else {
+    todoItems = noTodos;
+  }
   return (
     <Modal header="To-Do List">
-      {todos.length === 0 ? <p className="noTodos">No items on your Todo List!</p> : (
-        <div className="todoList">
-          <TodoItem tasks={todos} />
-        </div>
-      )}
+      <ul className="todoList">
+        {todoItems}
+      </ul>
     </Modal>
   );
 };
 
 TodoModal.propTypes = {
-  todos: PropTypes.object.isRequired
+  todos: PropTypes.array.isRequired
 };
 
 export default TodoModal;
